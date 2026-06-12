@@ -7,14 +7,41 @@
       name="description"
       content="FortunatoCare is a responsive hospital landing page for appointments, services, doctors, and patient support."
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="styles.css" />
     <title>FortunatoCare | Responsive Hospital Website</title>
   </head>
   <body>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-lab" viewBox="0 0 24 24">
+        <path d="M9 3h6M10 3v5l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V3" />
+        <path d="M7.5 15h9" />
+      </symbol>
+      <symbol id="icon-health" viewBox="0 0 24 24">
+        <path d="M12 21s-7-4.4-9-9.2C1.5 8.1 3.8 5 7.2 5c2 0 3.5 1.1 4.8 3 1.3-1.9 2.8-3 4.8-3 3.4 0 5.7 3.1 4.2 6.8C19 16.6 12 21 12 21z" />
+        <path d="M9 12h2l1-2 2 5 1-3h2" />
+      </symbol>
+      <symbol id="icon-hospital" viewBox="0 0 24 24">
+        <path d="M5 21V4h14v17M9 21v-5h6v5M9 8h6M12 5v6M7 12h2M15 12h2" />
+      </symbol>
+      <symbol id="icon-care" viewBox="0 0 24 24">
+        <path d="M4 13l4 4 5-5a3 3 0 0 1 4.2 0l.8.8" />
+        <path d="M3 10h4l2-4 4 9 2-5h6" />
+      </symbol>
+      <symbol id="icon-ambulance" viewBox="0 0 24 24">
+        <path d="M3 16V7h11v9M14 10h4l3 3v3h-3M6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM16 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8 11h3M9.5 9.5v3" />
+      </symbol>
+      <symbol id="icon-map" viewBox="0 0 24 24">
+        <path d="M12 21s7-5.3 7-11a7 7 0 0 0-14 0c0 5.7 7 11 7 11z" />
+        <circle cx="12" cy="10" r="2.5" />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <path d="M4 6h16v12H4z" />
+        <path d="M4 7l8 6 8-6" />
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path d="M7 4l3 3-2 2c1.2 2.5 3.5 4.8 6 6l2-2 3 3-2 4c-7 0-13-6-13-13l3-3z" />
+      </symbol>
+    </svg>
     <header>
       <nav class="section__container nav__container">
         <a class="nav__logo" href="#home" aria-label="FortunatoCare home">
@@ -43,6 +70,12 @@
         <div id="appointment" class="header__form">
           <form action="#" method="post">
             <h4>Book an Appointment</h4>
+            <div
+              class="appointment__confirmation"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></div>
             <label>
               <span>First Name</span>
               <input type="text" name="first-name" placeholder="First Name" required />
@@ -59,7 +92,19 @@
               <span>Phone Number</span>
               <input type="tel" name="phone" placeholder="Phone Number" required />
             </label>
+            <label>
+              <span>Reason for Visit</span>
+              <textarea
+                name="reason"
+                placeholder="Briefly tell us why you are booking"
+                rows="3"
+                required
+              ></textarea>
+            </label>
             <button class="btn form__btn">Book Appointment</button>
+            <p class="appointment__hint">
+              A short note helps the care team direct you to the right department.
+            </p>
           </form>
         </div>
       </div>
@@ -73,13 +118,14 @@
             <p>
               A clear overview of hospital services helps patients choose the
               right next step before they call, visit, or request an appointment.
+              FortunatoCare highlights both urgent support and everyday care.
             </p>
           </div>
         </div>
 
         <div class="service__grid">
           <div class="service__card">
-            <span><i class="ri-microscope-line"></i></span>
+            <span class="icon-badge"><svg><use href="#icon-lab"></use></svg></span>
             <h4>Laboratory Test</h4>
             <p>
               Accurate diagnostics and fast results for routine, specialty, and
@@ -88,7 +134,7 @@
             <a href="#appointment">Book Appointment</a>
           </div>
           <div class="service__card">
-            <span><i class="ri-mental-health-line"></i></span>
+            <span class="icon-badge"><svg><use href="#icon-health"></use></svg></span>
             <h4>Health Check</h4>
             <p>
               Preventive screenings and expert evaluations that help patients
@@ -97,13 +143,40 @@
             <a href="#appointment">Book Appointment</a>
           </div>
           <div class="service__card">
-            <span><i class="ri-hospital-line"></i></span>
+            <span class="icon-badge"><svg><use href="#icon-hospital"></use></svg></span>
             <h4>General Physiotherapy</h4>
             <p>
               Movement support, pain-management guidance, and recovery care from
               trained rehabilitation professionals.
             </p>
             <a href="#appointment">Book Appointment</a>
+          </div>
+          <div class="service__card">
+            <span class="icon-badge"><svg><use href="#icon-ambulance"></use></svg></span>
+            <h4>Emergency Support</h4>
+            <p>
+              Fast triage information, urgent care guidance, and emergency
+              transport support for patients who need immediate attention.
+            </p>
+            <a href="#appointment">Request Help</a>
+          </div>
+          <div class="service__card">
+            <span class="icon-badge"><svg><use href="#icon-care"></use></svg></span>
+            <h4>Primary Care</h4>
+            <p>
+              Routine visits, preventive checkups, medication follow-ups, and
+              long-term care planning for individuals and families.
+            </p>
+            <a href="#appointment">Book Appointment</a>
+          </div>
+          <div class="service__card">
+            <span class="icon-badge"><svg><use href="#icon-health"></use></svg></span>
+            <h4>Wellness Counseling</h4>
+            <p>
+              Lifestyle guidance, recovery support, nutrition direction, and
+              patient education to help visitors stay proactive after treatment.
+            </p>
+            <a href="#appointment">Start Planning</a>
           </div>
         </div>
       </section>
@@ -112,19 +185,37 @@
         <div class="about__content">
           <h2 class="section__header">About Us</h2>
           <p>
-            This project presents a modern hospital website layout with a strong
-            first impression, service cards, appointment intake, and patient-first
-            messaging.
+            FortunatoCare is designed as a modern hospital website that helps
+            patients understand care options before they arrive. The page brings
+            appointment booking, service information, doctor profiles, and
+            patient-first messaging into one organized experience.
+          </p>
+          <p>
+            The goal is to make healthcare information feel less confusing. A
+            visitor can quickly scan services, see what each doctor specializes
+            in, leave a short note about the reason for their appointment, and
+            find contact details without searching through crowded pages.
           </p>
           <p>
             The page is built with semantic HTML and organized CSS so it can be
-            extended into a fuller hospital management system with doctor
-            profiles, appointment storage, and authenticated patient workflows.
+            extended into a fuller hospital management system with stored
+            appointments, authenticated patient workflows, department pages,
+            patient resources, and administrative scheduling tools.
           </p>
-          <p>
-            It is intentionally responsive, making the same experience work
-            across desktop, tablet, and mobile screens.
-          </p>
+          <div class="care-highlights" aria-label="FortunatoCare highlights">
+            <div>
+              <strong>Patient-first intake</strong>
+              <span>Forms ask for the essentials plus a short reason for the visit.</span>
+            </div>
+            <div>
+              <strong>Clear departments</strong>
+              <span>Services are grouped so visitors can choose the right next step faster.</span>
+            </div>
+            <div>
+              <strong>Responsive access</strong>
+              <span>The same care information stays usable on desktop, tablet, and phone screens.</span>
+            </div>
+          </div>
         </div>
         <div class="about__image">
           <img
@@ -145,7 +236,7 @@
             the most important reasons a visitor can trust the care team.
           </p>
           <div class="why__grid">
-            <span><i class="ri-hand-heart-line"></i></span>
+            <span class="icon-badge"><svg><use href="#icon-care"></use></svg></span>
             <div>
               <h4>Intensive Care</h4>
               <p>
@@ -153,7 +244,7 @@
                 need close monitoring.
               </p>
             </div>
-            <span><i class="ri-truck-line"></i></span>
+            <span class="icon-badge"><svg><use href="#icon-ambulance"></use></svg></span>
             <div>
               <h4>Ambulance Support</h4>
               <p>
@@ -161,7 +252,7 @@
                 families need help quickly.
               </p>
             </div>
-            <span><i class="ri-hospital-line"></i></span>
+            <span class="icon-badge"><svg><use href="#icon-hospital"></use></svg></span>
             <div>
               <h4>Medical and Surgical</h4>
               <p>
@@ -179,7 +270,8 @@
             <h2 class="section__header">Our Doctors</h2>
             <p>
               A dedicated doctor section gives visitors a quick sense of the
-              specialists available through the care team.
+              specialists available through the care team, what each provider
+              focuses on, and which appointment type may fit their needs.
             </p>
           </div>
         </div>
@@ -190,14 +282,32 @@
               <img src="doctor-2.jpeg" alt="Portrait of Dr. Daniel Carter" />
             </div>
             <h4>Dr. Daniel Carter</h4>
-            <p>Cardiologist</p>
+            <p class="doctor-role">Cardiologist</p>
+            <p class="doctor-copy">
+              Specializes in preventive heart care, blood pressure management,
+              chest pain evaluation, and long-term cardiac wellness planning.
+            </p>
+            <div class="doctor-tags" aria-label="Dr. Daniel Carter specialties">
+              <span>Heart Health</span>
+              <span>EKG Review</span>
+              <span>Prevention</span>
+            </div>
           </div>
           <div class="doctors__card">
             <div class="doctors__card__image">
               <img src="us.jpg" alt="Hospital care team in a clinical setting" />
             </div>
             <h4>Dr. Chinyere Okafor</h4>
-            <p>Neurosurgeon</p>
+            <p class="doctor-role">Neurosurgeon</p>
+            <p class="doctor-copy">
+              Focuses on spine care, nerve-related symptoms, surgical
+              consultations, rehabilitation planning, and coordinated follow-up.
+            </p>
+            <div class="doctor-tags" aria-label="Dr. Chinyere Okafor specialties">
+              <span>Spine Care</span>
+              <span>Nerve Pain</span>
+              <span>Rehab Plans</span>
+            </div>
           </div>
           <div class="doctors__card">
             <div class="doctors__card__image">
@@ -207,7 +317,16 @@
               />
             </div>
             <h4>Dr. Maya Reynolds</h4>
-            <p>Dermatologist</p>
+            <p class="doctor-role">Dermatologist</p>
+            <p class="doctor-copy">
+              Provides skin health evaluations, rash and acne treatment,
+              preventive screenings, and patient education for ongoing care.
+            </p>
+            <div class="doctor-tags" aria-label="Dr. Maya Reynolds specialties">
+              <span>Skin Health</span>
+              <span>Screenings</span>
+              <span>Acne Care</span>
+            </div>
           </div>
         </div>
       </section>
@@ -237,12 +356,14 @@
           <p><a href="#services">Laboratory Test</a></p>
           <p><a href="#services">Health Check</a></p>
           <p><a href="#services">Physiotherapy</a></p>
+          <p><a href="#services">Emergency Support</a></p>
+          <p><a href="#services">Primary Care</a></p>
         </div>
         <div class="footer__col">
           <h4>Contact Us</h4>
-          <p><i class="ri-map-pin-2-fill"></i> 120 Wellness Avenue, Lake Charles, LA</p>
-          <p><i class="ri-mail-fill"></i> care@fortunatocare.example</p>
-          <p><i class="ri-phone-fill"></i> (337) 555-0198</p>
+          <p><svg class="footer-icon"><use href="#icon-map"></use></svg> 120 Wellness Avenue, Lake Charles, LA</p>
+          <p><svg class="footer-icon"><use href="#icon-mail"></use></svg> fanyanwu@mcneese.edu</p>
+          <p><svg class="footer-icon"><use href="#icon-phone"></use></svg> (337) 249-9136</p>
         </div>
       </div>
       <div class="footer__bar">
@@ -251,5 +372,26 @@
         </div>
       </div>
     </footer>
+    <script>
+      const appointmentForm = document.querySelector("#appointment form");
+      const confirmation = document.querySelector(".appointment__confirmation");
+
+      appointmentForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(appointmentForm);
+        const firstName = formData.get("first-name").trim();
+        const reason = formData.get("reason").trim();
+
+        const title = document.createElement("strong");
+        const message = document.createElement("span");
+        title.textContent = "Appointment request sent.";
+        message.textContent = `Thank you, ${firstName}. We received your request about "${reason}" and will contact you soon to confirm a time.`;
+        confirmation.replaceChildren(title, message);
+        confirmation.hidden = false;
+        appointmentForm.reset();
+        confirmation.scrollIntoView({ block: "center" });
+      });
+    </script>
   </body>
 </html>
