@@ -1,6 +1,6 @@
 # FortunatoCare Hospital Website
 
-FortunatoCare is a responsive hospital landing page built with HTML and CSS. It presents a patient-friendly healthcare experience with appointment booking, service highlights, doctor profiles, and contact information in a clean single-page layout.
+FortunatoCare is a responsive hospital landing page built with HTML, CSS, and JavaScript. It presents a patient-friendly healthcare experience with appointment booking, service highlights, doctor profiles, a demo patient portal, and contact information in a clean single-page layout.
 
 ## Overview
 
@@ -10,6 +10,7 @@ This project was created to demonstrate front-end development for a healthcare w
 
 - Responsive landing page for desktop, tablet, and mobile screens
 - Appointment request form with required contact fields
+- Demo patient portal with create-account, sign-in, verification code, and sign-out states
 - Service cards for laboratory testing, health checks, and physiotherapy
 - About section explaining the purpose of the healthcare platform
 - Why Choose Us section for patient trust signals
@@ -21,7 +22,8 @@ This project was created to demonstrate front-end development for a healthcare w
 
 - HTML5 for page structure and semantic content
 - CSS3 for layout, responsiveness, and styling
-- Remix Icon for healthcare and interface icons
+- JavaScript for appointment confirmation and local patient portal state
+- Custom inline SVG icons and project favicon/symbol
 - Local image assets for visual presentation
 
 ## Project Structure
@@ -31,6 +33,7 @@ Hospital-Website/
   index.html
   Website.html
   styles.css
+  assets/
   about.jpg
   choose-us.webp
   doctor-2.jpeg
@@ -54,7 +57,7 @@ Open the project folder and launch `index.html` in a browser. No build step or p
 
 - Store appointment requests with a backend service or database
 - Add doctor search and department filtering
-- Add patient login and appointment history
+- Connect the patient portal to real authentication and appointment history
 - Improve form validation with JavaScript
 - Deploy the site with GitHub Pages
 
