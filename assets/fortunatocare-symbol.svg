@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">FortunatoCare symbol</title>
+  <desc id="desc">A healthcare heart, cross, and care pulse.</desc>
+  <rect width="128" height="128" rx="28" fill="#0d846c"/>
+  <path d="M64 102S27 80 22 50c-3-18 8-31 24-31 9 0 15 5 18 12 3-7 9-12 18-12 16 0 27 13 24 31-5 30-42 52-42 52Z" fill="#ffffff"/>
+  <path d="M57 41h14v17h17v14H71v17H57V72H40V58h17Z" fill="#12ac8e"/>
+  <path d="M28 72h17l8-17 13 33 9-20h25" fill="none" stroke="#fb923c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

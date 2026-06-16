@@ -103,9 +103,22 @@ header {
 }
 
 .nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--white);
+}
+
+.nav__logo::before {
+  content: "";
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 10px;
+  background: url("assets/fortunatocare-symbol.svg") center/cover no-repeat;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 .nav__logo:hover,
