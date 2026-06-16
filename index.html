@@ -54,7 +54,12 @@
           <li class="link"><a href="#about">About Us</a></li>
           <li class="link"><a href="#doctors">Doctors</a></li>
         </ul>
-        <a class="btn" href="#contact">Contact Us</a>
+        <div class="nav__actions">
+          <a class="btn btn--ghost" href="#contact">Contact Us</a>
+          <button class="btn portal-button" type="button" data-open-portal>
+            Patient Portal
+          </button>
+        </div>
       </nav>
 
       <div id="home" class="section__container header__container">
@@ -226,6 +231,41 @@
         </div>
       </section>
 
+      <section id="portal" class="section__container portal__container" aria-labelledby="portal-title">
+        <div class="portal__content">
+          <p class="section__eyebrow">Patient Portal</p>
+          <h2 id="portal-title" class="section__header">A secure-feeling care hub for returning patients.</h2>
+          <p>
+            Create a demo patient account, verify it with an on-screen code, and
+            sign back in to review appointment reminders, care tasks, and saved
+            contact details. The flow is stored locally in the browser for this
+            front-end portfolio demo.
+          </p>
+          <button class="btn" type="button" data-open-portal>Create or Sign In</button>
+        </div>
+        <div class="portal__panel" aria-label="Patient portal preview">
+          <div class="portal__panel__top">
+            <span>Today</span>
+            <strong>2 care reminders</strong>
+          </div>
+          <div class="portal-row">
+            <span>Appointment</span>
+            <strong>Primary care follow-up</strong>
+            <small>Pending confirmation</small>
+          </div>
+          <div class="portal-row">
+            <span>Care Task</span>
+            <strong>Upload insurance card</strong>
+            <small>Recommended before visit</small>
+          </div>
+          <div class="portal-row portal-row--accent">
+            <span>Status</span>
+            <strong>Account verification ready</strong>
+            <small>Email code simulation included</small>
+          </div>
+        </div>
+      </section>
+
       <section class="section__container why__container">
         <div class="why__image">
           <img src="choose-us.webp" alt="Medical team providing patient care" />
@@ -373,6 +413,78 @@
         </div>
       </div>
     </footer>
+    <div
+      class="portal-modal"
+      id="patientPortalModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="patientPortalTitle"
+      aria-hidden="true"
+    >
+      <div class="portal-auth-card">
+        <button
+          class="portal-close"
+          id="closePatientPortal"
+          type="button"
+          aria-label="Close patient portal"
+        >
+          &times;
+        </button>
+        <div class="portal-auth-intro">
+          <p class="section__eyebrow">FortunatoCare Portal</p>
+          <h2 id="patientPortalTitle">Access your care workspace</h2>
+          <p>
+            This front-end demo simulates account creation, email verification,
+            sign in, and a saved patient session using browser storage.
+          </p>
+          <div class="portal-status" id="patientPortalStatus" role="status" aria-live="polite">
+            No patient is signed in.
+          </div>
+        </div>
+        <div class="portal-tabs" role="tablist" aria-label="Patient portal forms">
+          <button class="is-active" type="button" data-portal-tab="create">Create Account</button>
+          <button type="button" data-portal-tab="signin">Sign In</button>
+        </div>
+        <form class="portal-form" id="portalCreateForm">
+          <label>
+            Full Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Email Address
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="At least 6 characters" minlength="6" required />
+          </label>
+          <button class="btn" type="submit">Send Verification Code</button>
+        </form>
+        <form class="portal-form" id="portalSigninForm" hidden>
+          <label>
+            Email Address
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="Your password" required />
+          </label>
+          <button class="btn" type="submit">Sign In</button>
+        </form>
+        <form class="portal-form verify-form" id="portalVerifyForm" hidden>
+          <p id="patientPortalCode">Demo verification code: ----</p>
+          <label>
+            Verification Code
+            <input type="text" name="code" inputmode="numeric" maxlength="6" placeholder="Enter code" required />
+          </label>
+          <div class="portal-form-actions">
+            <button class="btn" type="submit">Verify Account</button>
+            <button class="btn btn--ghost-dark" id="resendPatientCode" type="button">Resend Code</button>
+            <button class="btn btn--ghost-dark" id="portalSignOut" type="button">Sign Out</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <script>
       const appointmentForm = document.querySelector("#appointment form");
       const confirmation = document.querySelector(".appointment__confirmation");
@@ -392,6 +504,158 @@
         confirmation.hidden = false;
         appointmentForm.reset();
         confirmation.scrollIntoView({ block: "center" });
+      });
+
+      const portalModal = document.querySelector("#patientPortalModal");
+      const portalStatus = document.querySelector("#patientPortalStatus");
+      const portalCreateForm = document.querySelector("#portalCreateForm");
+      const portalSigninForm = document.querySelector("#portalSigninForm");
+      const portalVerifyForm = document.querySelector("#portalVerifyForm");
+      const patientPortalCode = document.querySelector("#patientPortalCode");
+      const portalTabs = document.querySelectorAll("[data-portal-tab]");
+      const portalStorageKey = "fortunatocare-portal-account-v1";
+
+      const readPortalAccount = () => {
+        try {
+          return JSON.parse(localStorage.getItem(portalStorageKey));
+        } catch {
+          return null;
+        }
+      };
+
+      const savePortalAccount = (account) => {
+        localStorage.setItem(portalStorageKey, JSON.stringify(account));
+      };
+
+      const createPortalCode = () =>
+        String(Math.floor(100000 + Math.random() * 900000));
+
+      const setPortalStatus = (message) => {
+        portalStatus.textContent = message;
+      };
+
+      const showPortalTab = (tabName) => {
+        portalTabs.forEach((tab) => {
+          tab.classList.toggle("is-active", tab.dataset.portalTab === tabName);
+        });
+        portalCreateForm.hidden = tabName !== "create";
+        portalSigninForm.hidden = tabName !== "signin";
+        portalVerifyForm.hidden = tabName !== "verify";
+      };
+
+      const refreshPortal = () => {
+        const account = readPortalAccount();
+
+        if (!account) {
+          setPortalStatus("No patient is signed in.");
+          patientPortalCode.textContent = "Demo verification code: ----";
+          showPortalTab("create");
+          return;
+        }
+
+        if (!account.verified) {
+          setPortalStatus(`Verification pending for ${account.email}.`);
+          patientPortalCode.textContent = `Demo verification code: ${account.code}`;
+          showPortalTab("verify");
+          return;
+        }
+
+        setPortalStatus(`Signed in as ${account.name}. Next visit tools are ready.`);
+        patientPortalCode.textContent =
+          "Account verified. You can sign out or keep reviewing the portal preview.";
+        showPortalTab("verify");
+      };
+
+      document.querySelectorAll("[data-open-portal]").forEach((button) => {
+        button.addEventListener("click", () => {
+          portalModal.classList.add("is-open");
+          portalModal.setAttribute("aria-hidden", "false");
+          refreshPortal();
+        });
+      });
+
+      document.querySelector("#closePatientPortal").addEventListener("click", () => {
+        portalModal.classList.remove("is-open");
+        portalModal.setAttribute("aria-hidden", "true");
+      });
+
+      portalModal.addEventListener("click", (event) => {
+        if (event.target === portalModal) {
+          portalModal.classList.remove("is-open");
+          portalModal.setAttribute("aria-hidden", "true");
+        }
+      });
+
+      portalTabs.forEach((tab) => {
+        tab.addEventListener("click", () => showPortalTab(tab.dataset.portalTab));
+      });
+
+      portalCreateForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(portalCreateForm);
+        const account = {
+          name: formData.get("name").trim(),
+          email: formData.get("email").trim().toLowerCase(),
+          password: formData.get("password"),
+          verified: false,
+          code: createPortalCode(),
+        };
+        savePortalAccount(account);
+        portalCreateForm.reset();
+        refreshPortal();
+      });
+
+      portalSigninForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const account = readPortalAccount();
+        const formData = new FormData(portalSigninForm);
+        const email = formData.get("email").trim().toLowerCase();
+        const password = formData.get("password");
+
+        if (!account || account.email !== email || account.password !== password) {
+          setPortalStatus("No matching patient account was found in this browser.");
+          return;
+        }
+
+        if (!account.verified) {
+          setPortalStatus("Account found. Verify it before signing in.");
+          showPortalTab("verify");
+          return;
+        }
+
+        portalSigninForm.reset();
+        refreshPortal();
+      });
+
+      portalVerifyForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const account = readPortalAccount();
+        const code = new FormData(portalVerifyForm).get("code").trim();
+
+        if (!account || code !== account.code) {
+          setPortalStatus("That code does not match the current demo email.");
+          return;
+        }
+
+        savePortalAccount({ ...account, verified: true });
+        portalVerifyForm.reset();
+        refreshPortal();
+      });
+
+      document.querySelector("#resendPatientCode").addEventListener("click", () => {
+        const account = readPortalAccount();
+        if (!account) {
+          setPortalStatus("Create an account before requesting a code.");
+          return;
+        }
+        savePortalAccount({ ...account, verified: false, code: createPortalCode() });
+        refreshPortal();
+      });
+
+      document.querySelector("#portalSignOut").addEventListener("click", () => {
+        localStorage.removeItem(portalStorageKey);
+        portalVerifyForm.reset();
+        refreshPortal();
       });
     </script>
   </body>
