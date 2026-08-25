@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create a FortunatoCare patient account, verify access, sign in, and review your care workspace."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/fortunatocare-symbol.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <title>Patient Portal | FortunatoCare</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="section__container nav__container" aria-label="Primary navigation">
+        <a class="nav__logo" href="index.html" aria-label="FortunatoCare home">
+          <img src="assets/fortunatocare-symbol.svg" alt="" />
+          <span>Fortunato<span>Care</span></span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span></span>
+        </button>
+        <div class="nav-menu" id="primary-navigation">
+          <ul class="nav__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+          </ul>
+          <div class="nav__actions">
+            <a class="btn btn--ghost" href="contact.html">Contact Us</a>
+            <a class="btn portal-button" href="portal.html" aria-current="page">Patient Portal</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main data-portal-root>
+      <section class="portal-hero">
+        <div class="section__container portal-page-grid">
+        <div>
+          <p class="section__eyebrow">Patient Portal</p>
+          <h1>Access your care workspace.</h1>
+          <p class="section__lead">
+            Create an account, verify access, sign in, and review appointment
+            reminders, care tasks, and saved patient information from one
+            focused page.
+          </p>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="accent-line"></div>
+              <strong>Create</strong>
+              <p>Start a patient account with your name, email, and password.</p>
+            </article>
+            <article class="feature-card">
+              <div class="accent-line accent-line--blue"></div>
+              <strong>Verify</strong>
+              <p>Enter the security code to activate account access.</p>
+            </article>
+            <article class="feature-card">
+              <div class="accent-line accent-line--teal"></div>
+              <strong>Return</strong>
+              <p>Sign out and sign back in without losing the account.</p>
+            </article>
+          </div>
+        </div>
+
+        <section class="portal-auth-card" aria-labelledby="patientPortalTitle">
+          <p class="section__eyebrow">FortunatoCare Portal</p>
+          <h2 id="patientPortalTitle">Sign in or create your account</h2>
+          <div class="portal-status" id="patientPortalStatus" role="status" aria-live="polite">
+            No patient is signed in.
+          </div>
+
+          <div class="portal-tabs" role="tablist" aria-label="Patient portal forms">
+            <button class="is-active" type="button" data-portal-tab="create">Create Account</button>
+            <button type="button" data-portal-tab="signin">Sign In</button>
+          </div>
+
+          <form class="portal-form" id="portalCreateForm">
+            <label>
+              Full Name
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Password
+              <input
+                type="password"
+                name="password"
+                placeholder="At least 6 characters"
+                minlength="6"
+                required
+              />
+            </label>
+            <button class="btn btn--secondary" type="submit">Create Account</button>
+          </form>
+
+          <form class="portal-form" id="portalSigninForm" hidden>
+            <label>
+              Email Address
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" placeholder="Your password" required />
+            </label>
+            <button class="btn btn--secondary" type="submit">Sign In</button>
+          </form>
+
+          <form class="portal-form verify-form" id="portalVerifyForm" hidden>
+            <p id="patientPortalCode">Security code: ----</p>
+            <label>
+              Verification Code
+              <input
+                type="text"
+                name="code"
+                inputmode="numeric"
+                maxlength="6"
+                placeholder="Enter code"
+                required
+              />
+            </label>
+            <div class="portal-form-actions">
+              <button class="btn btn--secondary" type="submit">Verify Account</button>
+              <button class="btn btn--ghost" id="resendPatientCode" type="button">
+                Resend Code
+              </button>
+            </div>
+          </form>
+
+          <div class="portal-dashboard" id="portalDashboard" hidden>
+            <div class="portal-dashboard__header">
+              <strong>Welcome, <span data-portal-name>patient</span></strong>
+              <span data-portal-email>patient@example.com</span>
+            </div>
+            <div class="portal-dashboard__grid">
+              <div class="portal-dashboard__item">
+                <span>Appointment</span>
+                <strong>Primary care follow-up</strong>
+                <p>Scheduling team review pending.</p>
+              </div>
+              <div class="portal-dashboard__item">
+                <span>Care Task</span>
+                <strong>Update insurance details</strong>
+                <p>Recommended before your next visit.</p>
+              </div>
+              <div class="portal-dashboard__item">
+                <span>Messages</span>
+                <strong>0 unread</strong>
+                <p>New care team messages will appear here.</p>
+              </div>
+              <div class="portal-dashboard__item">
+                <span>Status</span>
+                <strong>Account verified</strong>
+                <p>Your portal access is active on this device.</p>
+              </div>
+            </div>
+            <button class="btn btn--ghost" id="portalSignOut" type="button">Sign Out</button>
+          </div>
+        </section>
+        </div>
+      </section>
+
+      <section class="portal-preview">
+        <div class="section__container">
+          <p class="section__eyebrow">Portal tools</p>
+          <h2 class="section__header">What patients can manage here.</h2>
+          <div class="portal-benefit-grid">
+            <article class="portal-benefit-card">
+              <h3>Appointment reminders</h3>
+              <p>Review next-visit status and recommended preparation steps.</p>
+            </article>
+            <article class="portal-benefit-card">
+              <h3>Care tasks</h3>
+              <p>Keep track of details that help the team prepare for your visit.</p>
+            </article>
+            <article class="portal-benefit-card">
+              <h3>Saved access</h3>
+              <p>Sign back in later without recreating your account.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div>
+          <h3>Fortunato<span>Care</span></h3>
+          <p>
+            Coordinated hospital care for patients, families, employers, and
+            community partners in Lake Charles.
+          </p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Patient Tools</h4>
+          <ul>
+            <li><a href="portal.html">Patient Portal</a></li>
+            <li><a href="contact.html#appointment">Book Appointment</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>120 Wellness Avenue, Lake Charles, LA</p>
+          <p>hello@fortunatocare.com</p>
+          <p>(337) 555-0198</p>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <div class="footer__bar__content">
+          <p>Copyright 2026 FortunatoCare. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

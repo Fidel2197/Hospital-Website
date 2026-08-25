@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Meet FortunatoCare doctors across cardiology, neurology, dermatology, primary care, emergency support, and rehabilitation."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/fortunatocare-symbol.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <title>Doctors | FortunatoCare</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="section__container nav__container" aria-label="Primary navigation">
+        <a class="nav__logo" href="index.html" aria-label="FortunatoCare home">
+          <img src="assets/fortunatocare-symbol.svg" alt="" />
+          <span>Fortunato<span>Care</span></span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span></span>
+        </button>
+        <div class="nav-menu" id="primary-navigation">
+          <ul class="nav__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="doctors.html" aria-current="page">Doctors</a></li>
+          </ul>
+          <div class="nav__actions">
+            <a class="btn btn--ghost" href="contact.html">Contact Us</a>
+            <a class="btn portal-button" href="portal.html">Patient Portal</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero--doctors">
+        <div class="section__container page-hero__content">
+          <p class="section__eyebrow">Doctors</p>
+          <h1>Meet the specialists behind the care.</h1>
+          <p>
+            FortunatoCare doctor profiles help patients understand who they may
+            see, what each provider focuses on, and which appointment path fits
+            their needs.
+          </p>
+        </div>
+      </section>
+
+      <section class="section__container">
+        <p class="section__eyebrow">Care team</p>
+        <h2 class="section__header">Specialists for everyday and advanced care.</h2>
+        <p class="section__lead">
+          Each profile is written in plain language so visitors can scan
+          specialties quickly before requesting an appointment.
+        </p>
+        <div class="doctors__grid">
+          <article class="doctors__card">
+            <img src="doctor-2.jpeg" alt="Portrait of Dr. Daniel Carter" />
+            <div class="doctor-card__body">
+              <h3>Dr. Daniel Carter</h3>
+              <p class="doctor-role">Cardiologist</p>
+              <p>
+                Specializes in preventive heart care, blood pressure management,
+                chest pain evaluation, and long-term cardiac wellness planning.
+              </p>
+              <div class="doctor-tags" aria-label="Dr. Daniel Carter specialties">
+                <span>Heart Health</span>
+                <span>EKG Review</span>
+                <span>Prevention</span>
+              </div>
+            </div>
+          </article>
+          <article class="doctors__card">
+            <img src="us.jpg" alt="Hospital care team in a clinical setting" />
+            <div class="doctor-card__body">
+              <h3>Dr. Chinyere Okafor</h3>
+              <p class="doctor-role">Neurosurgeon</p>
+              <p>
+                Focuses on spine care, nerve-related symptoms, surgical
+                consultations, rehabilitation planning, and coordinated follow-up.
+              </p>
+              <div class="doctor-tags" aria-label="Dr. Chinyere Okafor specialties">
+                <span>Spine Care</span>
+                <span>Nerve Pain</span>
+                <span>Rehab Plans</span>
+              </div>
+            </div>
+          </article>
+          <article class="doctors__card">
+            <img src="about.jpg" alt="Healthcare specialist consulting with a patient" />
+            <div class="doctor-card__body">
+              <h3>Dr. Maya Reynolds</h3>
+              <p class="doctor-role">Dermatologist</p>
+              <p>
+                Provides skin health evaluations, rash and acne treatment,
+                preventive screenings, and patient education for ongoing care.
+              </p>
+              <div class="doctor-tags" aria-label="Dr. Maya Reynolds specialties">
+                <span>Skin Health</span>
+                <span>Screenings</span>
+                <span>Acne Care</span>
+              </div>
+            </div>
+          </article>
+          <article class="doctors__card">
+            <img src="choose-us.webp" alt="Medical team preparing care for a patient" />
+            <div class="doctor-card__body">
+              <h3>Dr. Samuel Brooks</h3>
+              <p class="doctor-role">Primary Care Physician</p>
+              <p>
+                Guides routine visits, chronic care follow-up, preventive
+                screenings, medication reviews, and family health planning.
+              </p>
+              <div class="doctor-tags" aria-label="Dr. Samuel Brooks specialties">
+                <span>Primary Care</span>
+                <span>Checkups</span>
+                <span>Care Plans</span>
+              </div>
+            </div>
+          </article>
+          <article class="doctors__card">
+            <img src="about.jpg" alt="Healthcare professional discussing treatment details" />
+            <div class="doctor-card__body">
+              <h3>Dr. Amina Pierce</h3>
+              <p class="doctor-role">Emergency Medicine</p>
+              <p>
+                Supports urgent triage, stabilization planning, emergency
+                coordination, and follow-up routing after immediate care.
+              </p>
+              <div class="doctor-tags" aria-label="Dr. Amina Pierce specialties">
+                <span>Urgent Care</span>
+                <span>Triage</span>
+                <span>Follow-up</span>
+              </div>
+            </div>
+          </article>
+          <article class="doctors__card">
+            <img src="doctor-2.jpeg" alt="Doctor reviewing care plan notes" />
+            <div class="doctor-card__body">
+              <h3>Dr. Lucas Nguyen</h3>
+              <p class="doctor-role">Rehabilitation Specialist</p>
+              <p>
+                Helps patients recover strength, mobility, and confidence after
+                injury, surgery, or long-term pain concerns.
+              </p>
+              <div class="doctor-tags" aria-label="Dr. Lucas Nguyen specialties">
+                <span>Mobility</span>
+                <span>Recovery</span>
+                <span>Therapy Plans</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="highlight-band">
+        <div class="section__container highlight-grid">
+          <div>
+            <p class="section__eyebrow">Care matching</p>
+            <h2 class="section__header">Not sure which doctor to choose?</h2>
+            <p>
+              Start with the appointment form or contact page. FortunatoCare can
+              route patients to primary care, urgent support, diagnostics, or a
+              specialist based on the reason for the visit.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn" href="contact.html#appointment">Request Appointment</a>
+            <a class="btn btn--ghost" href="services.html">Compare Services</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div>
+          <h3>Fortunato<span>Care</span></h3>
+          <p>
+            Coordinated hospital care for patients, families, employers, and
+            community partners in Lake Charles.
+          </p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Patient Tools</h4>
+          <ul>
+            <li><a href="portal.html">Patient Portal</a></li>
+            <li><a href="contact.html#appointment">Book Appointment</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>120 Wellness Avenue, Lake Charles, LA</p>
+          <p>hello@fortunatocare.com</p>
+          <p>(337) 555-0198</p>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <div class="footer__bar__content">
+          <p>Copyright 2026 FortunatoCare. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

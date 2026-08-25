@@ -5,658 +5,274 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="FortunatoCare is a responsive hospital landing page for appointments, services, doctors, and patient support."
+      content="FortunatoCare provides hospital services, appointments, doctor profiles, patient portal access, and care programs for families and organizations."
     />
     <link rel="icon" type="image/svg+xml" href="assets/fortunatocare-symbol.svg" />
     <link rel="stylesheet" href="styles.css" />
-    <title>FortunatoCare | Responsive Hospital Website</title>
+    <script src="app.js" defer></script>
+    <title>FortunatoCare | Patient Care, Doctors, Services, and Portal</title>
   </head>
   <body>
-    <svg class="icon-sprite" aria-hidden="true" focusable="false">
-      <symbol id="icon-lab" viewBox="0 0 24 24">
-        <path d="M9 3h6M10 3v5l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V3" />
-        <path d="M7.5 15h9" />
-      </symbol>
-      <symbol id="icon-health" viewBox="0 0 24 24">
-        <path d="M12 21s-7-4.4-9-9.2C1.5 8.1 3.8 5 7.2 5c2 0 3.5 1.1 4.8 3 1.3-1.9 2.8-3 4.8-3 3.4 0 5.7 3.1 4.2 6.8C19 16.6 12 21 12 21z" />
-        <path d="M9 12h2l1-2 2 5 1-3h2" />
-      </symbol>
-      <symbol id="icon-hospital" viewBox="0 0 24 24">
-        <path d="M5 21V4h14v17M9 21v-5h6v5M9 8h6M12 5v6M7 12h2M15 12h2" />
-      </symbol>
-      <symbol id="icon-care" viewBox="0 0 24 24">
-        <path d="M4 13l4 4 5-5a3 3 0 0 1 4.2 0l.8.8" />
-        <path d="M3 10h4l2-4 4 9 2-5h6" />
-      </symbol>
-      <symbol id="icon-ambulance" viewBox="0 0 24 24">
-        <path d="M3 16V7h11v9M14 10h4l3 3v3h-3M6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM16 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8 11h3M9.5 9.5v3" />
-      </symbol>
-      <symbol id="icon-map" viewBox="0 0 24 24">
-        <path d="M12 21s7-5.3 7-11a7 7 0 0 0-14 0c0 5.7 7 11 7 11z" />
-        <circle cx="12" cy="10" r="2.5" />
-      </symbol>
-      <symbol id="icon-mail" viewBox="0 0 24 24">
-        <path d="M4 6h16v12H4z" />
-        <path d="M4 7l8 6 8-6" />
-      </symbol>
-      <symbol id="icon-phone" viewBox="0 0 24 24">
-        <path d="M7 4l3 3-2 2c1.2 2.5 3.5 4.8 6 6l2-2 3 3-2 4c-7 0-13-6-13-13l3-3z" />
-      </symbol>
-    </svg>
-    <header>
-      <nav class="section__container nav__container">
-        <a class="nav__logo" href="#home" aria-label="FortunatoCare home">
-          Fortunato<span>Care</span>
+    <header class="site-header">
+      <nav class="section__container nav__container" aria-label="Primary navigation">
+        <a class="nav__logo" href="index.html" aria-label="FortunatoCare home">
+          <img src="assets/fortunatocare-symbol.svg" alt="" />
+          <span>Fortunato<span>Care</span></span>
         </a>
-        <ul class="nav__links">
-          <li class="link"><a href="#home">Home</a></li>
-          <li class="link"><a href="#services">Services</a></li>
-          <li class="link"><a href="#about">About Us</a></li>
-          <li class="link"><a href="#doctors">Doctors</a></li>
-        </ul>
-        <div class="nav__actions">
-          <a class="btn btn--ghost" href="#contact">Contact Us</a>
-          <button class="btn portal-button" type="button" data-open-portal>
-            Patient Portal
-          </button>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span></span>
+        </button>
+        <div class="nav-menu" id="primary-navigation">
+          <ul class="nav__links">
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+          </ul>
+          <div class="nav__actions">
+            <a class="btn btn--ghost" href="contact.html">Contact Us</a>
+            <a class="btn portal-button" href="portal.html">Patient Portal</a>
+          </div>
         </div>
       </nav>
-
-      <div id="home" class="section__container header__container">
-        <div class="header__content">
-          <h1>Providing an Exceptional Patient Experience</h1>
-          <p>
-            FortunatoCare brings appointment booking, service information, and
-            patient support into one responsive healthcare website. The goal is
-            to make care easier to access, understand, and schedule.
-          </p>
-          <a class="btn" href="#services">See Services</a>
-        </div>
-
-        <div id="appointment" class="header__form">
-          <form action="#" method="post">
-            <h4>Book an Appointment</h4>
-            <div
-              class="appointment__confirmation"
-              role="status"
-              aria-live="polite"
-              hidden
-            ></div>
-            <label>
-              <span>First Name</span>
-              <input type="text" name="first-name" placeholder="First Name" required />
-            </label>
-            <label>
-              <span>Last Name</span>
-              <input type="text" name="last-name" placeholder="Last Name" required />
-            </label>
-            <label>
-              <span>Email Address</span>
-              <input type="email" name="email" placeholder="Email Address" required />
-            </label>
-            <label>
-              <span>Phone Number</span>
-              <input type="tel" name="phone" placeholder="Phone Number" required />
-            </label>
-            <label>
-              <span>Reason for Visit</span>
-              <textarea
-                name="reason"
-                placeholder="Briefly tell us why you are booking"
-                rows="3"
-                required
-              ></textarea>
-            </label>
-            <button class="btn form__btn">Book Appointment</button>
-            <p class="appointment__hint">
-              A short note helps the care team direct you to the right department.
-            </p>
-          </form>
-        </div>
-      </div>
     </header>
 
     <main>
-      <section id="services" class="section__container service__container">
-        <div class="service__header">
-          <div class="service__header__content">
-            <h2 class="section__header">Our Services</h2>
+      <section class="hero">
+        <div class="section__container hero__container">
+          <div class="hero__content">
+            <p class="section__eyebrow">Hospital care with clear next steps</p>
+            <h1>FortunatoCare</h1>
             <p>
-              A clear overview of hospital services helps patients choose the
-              right next step before they call, visit, or request an appointment.
-              FortunatoCare highlights both urgent support and everyday care.
+              Coordinated care for patients, families, employers, and community
+              partners. Find the right service, request an appointment, meet
+              the care team, and access your patient workspace from one polished
+              healthcare site.
             </p>
+            <div class="hero__actions">
+              <a class="btn" href="contact.html#appointment">Book Appointment</a>
+              <a class="btn btn--ghost" href="services.html">View Services</a>
+            </div>
+            <div class="hero__proof" aria-label="FortunatoCare highlights">
+              <div>
+                <strong>24/7</strong>
+                <span>urgent support routing</span>
+              </div>
+              <div>
+                <strong>12+</strong>
+                <span>care departments</span>
+              </div>
+              <div>
+                <strong>1 hub</strong>
+                <span>for patients and partners</span>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="service__grid">
-          <div class="service__card">
-            <span class="icon-badge"><svg><use href="#icon-lab"></use></svg></span>
-            <h4>Laboratory Test</h4>
-            <p>
-              Accurate diagnostics and fast results for routine, specialty, and
-              follow-up testing.
-            </p>
-            <a href="#appointment">Book Appointment</a>
-          </div>
-          <div class="service__card">
-            <span class="icon-badge"><svg><use href="#icon-health"></use></svg></span>
-            <h4>Health Check</h4>
-            <p>
-              Preventive screenings and expert evaluations that help patients
-              stay proactive about long-term wellness.
-            </p>
-            <a href="#appointment">Book Appointment</a>
-          </div>
-          <div class="service__card">
-            <span class="icon-badge"><svg><use href="#icon-hospital"></use></svg></span>
-            <h4>General Physiotherapy</h4>
-            <p>
-              Movement support, pain-management guidance, and recovery care from
-              trained rehabilitation professionals.
-            </p>
-            <a href="#appointment">Book Appointment</a>
-          </div>
-          <div class="service__card">
-            <span class="icon-badge"><svg><use href="#icon-ambulance"></use></svg></span>
-            <h4>Emergency Support</h4>
-            <p>
-              Fast triage information, urgent care guidance, and emergency
-              transport support for patients who need immediate attention.
-            </p>
-            <a href="#appointment">Request Help</a>
-          </div>
-          <div class="service__card">
-            <span class="icon-badge"><svg><use href="#icon-care"></use></svg></span>
-            <h4>Primary Care</h4>
-            <p>
-              Routine visits, preventive checkups, medication follow-ups, and
-              long-term care planning for individuals and families.
-            </p>
-            <a href="#appointment">Book Appointment</a>
-          </div>
-          <div class="service__card">
-            <span class="icon-badge"><svg><use href="#icon-health"></use></svg></span>
-            <h4>Wellness Counseling</h4>
-            <p>
-              Lifestyle guidance, recovery support, nutrition direction, and
-              patient education to help visitors stay proactive after treatment.
-            </p>
-            <a href="#appointment">Start Planning</a>
-          </div>
+          <aside class="form-panel" id="appointment" aria-label="Appointment request form">
+            <h2>Request an Appointment</h2>
+            <p>Share the essentials and the scheduling team will follow up.</p>
+            <form class="appointment-form" action="#" method="post">
+              <div class="appointment__confirmation" role="status" aria-live="polite" hidden></div>
+              <label>
+                First Name
+                <input type="text" name="first-name" placeholder="First name" required />
+              </label>
+              <label>
+                Last Name
+                <input type="text" name="last-name" placeholder="Last name" required />
+              </label>
+              <label>
+                Email Address
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                Phone Number
+                <input type="tel" name="phone" placeholder="(337) 555-0198" required />
+              </label>
+              <label>
+                Reason for Visit
+                <textarea
+                  name="reason"
+                  placeholder="Briefly describe the care you need"
+                  rows="3"
+                  required
+                ></textarea>
+              </label>
+              <button class="btn btn--secondary" type="submit">Send Request</button>
+              <p class="appointment__hint">
+                A care coordinator reviews each request and confirms the next available time.
+              </p>
+            </form>
+          </aside>
         </div>
       </section>
 
-      <section id="about" class="section__container about__container">
-        <div class="about__content">
-          <h2 class="section__header">About Us</h2>
-          <p>
-            FortunatoCare is designed as a modern hospital website that helps
-            patients understand care options before they arrive. The page brings
-            appointment booking, service information, doctor profiles, and
-            patient-first messaging into one organized experience.
-          </p>
-          <p>
-            The goal is to make healthcare information feel less confusing. A
-            visitor can quickly scan services, see what each doctor specializes
-            in, leave a short note about the reason for their appointment, and
-            find contact details without searching through crowded pages.
-          </p>
-          <p>
-            The page is built with semantic HTML and organized CSS so it can be
-            extended into a fuller hospital management system with stored
-            appointments, authenticated patient workflows, department pages,
-            patient resources, and administrative scheduling tools.
-          </p>
-          <div class="care-highlights" aria-label="FortunatoCare highlights">
-            <div>
-              <strong>Patient-first intake</strong>
-              <span>Forms ask for the essentials plus a short reason for the visit.</span>
-            </div>
-            <div>
-              <strong>Clear departments</strong>
-              <span>Services are grouped so visitors can choose the right next step faster.</span>
-            </div>
-            <div>
-              <strong>Responsive access</strong>
-              <span>The same care information stays usable on desktop, tablet, and phone screens.</span>
-            </div>
-          </div>
-        </div>
-        <div class="about__image">
-          <img
-            src="about.jpg"
-            alt="Healthcare professional reviewing patient information"
-          />
-        </div>
-      </section>
-
-      <section id="portal" class="section__container portal__container" aria-labelledby="portal-title">
-        <div class="portal__content">
-          <p class="section__eyebrow">Patient Portal</p>
-          <h2 id="portal-title" class="section__header">A secure-feeling care hub for returning patients.</h2>
-          <p>
-            Create a demo patient account, verify it with an on-screen code, and
-            sign back in to review appointment reminders, care tasks, and saved
-            contact details. The flow is stored locally in the browser for this
-            front-end portfolio demo.
-          </p>
-          <button class="btn" type="button" data-open-portal>Create or Sign In</button>
-        </div>
-        <div class="portal__panel" aria-label="Patient portal preview">
-          <div class="portal__panel__top">
-            <span>Today</span>
-            <strong>2 care reminders</strong>
-          </div>
-          <div class="portal-row">
-            <span>Appointment</span>
-            <strong>Primary care follow-up</strong>
-            <small>Pending confirmation</small>
-          </div>
-          <div class="portal-row">
-            <span>Care Task</span>
-            <strong>Upload insurance card</strong>
-            <small>Recommended before visit</small>
-          </div>
-          <div class="portal-row portal-row--accent">
-            <span>Status</span>
-            <strong>Account verification ready</strong>
-            <small>Email code simulation included</small>
-          </div>
-        </div>
-      </section>
-
-      <section class="section__container why__container">
-        <div class="why__image">
+      <section class="image-strip" aria-label="FortunatoCare care environments">
+        <div class="section__container image-strip__grid">
+          <img src="about.jpg" alt="Healthcare professional reviewing patient information" />
           <img src="choose-us.webp" alt="Medical team providing patient care" />
+          <img src="doctor-2.jpeg" alt="Doctor ready to meet with a patient" />
         </div>
-        <div class="why__content">
-          <h2 class="section__header">Why Choose Us</h2>
-          <p>
-            With a steady commitment to patient well-being, the design highlights
-            the most important reasons a visitor can trust the care team.
-          </p>
-          <div class="why__grid">
-            <span class="icon-badge"><svg><use href="#icon-care"></use></svg></span>
-            <div>
-              <h4>Intensive Care</h4>
-              <p>
-                Advanced facilities and focused clinical support for patients who
-                need close monitoring.
-              </p>
+      </section>
+
+      <section class="section__container">
+        <p class="section__eyebrow">One connected care experience</p>
+        <h2 class="section__header">Built for patients and professional partners.</h2>
+        <p class="section__lead">
+          FortunatoCare organizes the hospital experience into clear pages,
+          practical forms, and focused care pathways so visitors can act quickly
+          without searching through a crowded one-page layout.
+        </p>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="accent-line"></div>
+            <strong>Patient-first scheduling</strong>
+            <p>
+              Appointment requests collect contact information, care needs, and
+              a short visit reason so the team can route patients faster.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="accent-line accent-line--blue"></div>
+            <strong>Dedicated service pages</strong>
+            <p>
+              Services, doctors, about information, contact details, and portal
+              access now live on separate pages that feel easier to browse.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="accent-line accent-line--teal"></div>
+            <strong>Organization-ready care</strong>
+            <p>
+              Employer wellness, occupational health, and partner referrals are
+              presented with the same clarity as everyday patient services.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portal-preview">
+        <div class="section__container portal-preview__grid">
+          <div>
+            <p class="section__eyebrow">Patient Portal</p>
+            <h2 class="section__header">Create an account, verify access, and sign back in.</h2>
+            <p class="section__lead">
+              The patient workspace gives returning visitors a focused place to
+              review saved contact details, appointment reminders, care tasks,
+              and account status.
+            </p>
+            <div class="cta-actions">
+              <a class="btn" href="portal.html">Open Patient Portal</a>
+              <a class="btn btn--ghost" href="contact.html">Contact Support</a>
             </div>
-            <span class="icon-badge"><svg><use href="#icon-ambulance"></use></svg></span>
-            <div>
-              <h4>Ambulance Support</h4>
-              <p>
-                Emergency transport information is easy to find when patients and
-                families need help quickly.
-              </p>
+          </div>
+          <div class="portal__panel" aria-label="Patient portal preview">
+            <div class="portal__panel__top">
+              <span>Today</span>
+              <strong>2 care reminders</strong>
             </div>
-            <span class="icon-badge"><svg><use href="#icon-hospital"></use></svg></span>
-            <div>
-              <h4>Medical and Surgical</h4>
-              <p>
-                The service layout can scale to cover departments, procedures,
-                specialists, and patient resources.
-              </p>
+            <div class="portal-row">
+              <span>Appointment</span>
+              <strong>Primary care follow-up</strong>
+              <small>Pending scheduling confirmation</small>
+            </div>
+            <div class="portal-row">
+              <span>Care Task</span>
+              <strong>Update insurance details</strong>
+              <small>Recommended before the visit</small>
+            </div>
+            <div class="portal-row portal-row--accent">
+              <span>Portal Status</span>
+              <strong>Account access available</strong>
+              <small>Create an account or sign in from the portal page</small>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="doctors" class="section__container doctors__container">
-        <div class="doctors__header">
-          <div class="doctors__header__content">
-            <h2 class="section__header">Our Doctors</h2>
+      <section class="highlight-band">
+        <div class="section__container highlight-grid">
+          <div>
+            <p class="section__eyebrow">For organizations</p>
+            <h2 class="section__header">Healthcare support for teams, campuses, and local partners.</h2>
             <p>
-              A dedicated doctor section gives visitors a quick sense of the
-              specialists available through the care team, what each provider
-              focuses on, and which appointment type may fit their needs.
+              FortunatoCare is structured to serve more than individual visits.
+              The site now gives companies and partner organizations a clearer
+              path to preventive care, employee wellness, and referral support.
             </p>
           </div>
+          <ul class="highlight-list">
+            <li>Employer wellness visits and preventive screening coordination.</li>
+            <li>Occupational health guidance for return-to-work and injury follow-up.</li>
+            <li>Referral-friendly service pages for community clinics and partner groups.</li>
+          </ul>
         </div>
+      </section>
 
-        <div class="doctors__grid">
-          <div class="doctors__card">
-            <div class="doctors__card__image">
-              <img src="doctor-2.jpeg" alt="Portrait of Dr. Daniel Carter" />
-            </div>
-            <h4>Dr. Daniel Carter</h4>
-            <p class="doctor-role">Cardiologist</p>
-            <p class="doctor-copy">
-              Specializes in preventive heart care, blood pressure management,
-              chest pain evaluation, and long-term cardiac wellness planning.
-            </p>
-            <div class="doctor-tags" aria-label="Dr. Daniel Carter specialties">
-              <span>Heart Health</span>
-              <span>EKG Review</span>
-              <span>Prevention</span>
-            </div>
-          </div>
-          <div class="doctors__card">
-            <div class="doctors__card__image">
-              <img src="us.jpg" alt="Hospital care team in a clinical setting" />
-            </div>
-            <h4>Dr. Chinyere Okafor</h4>
-            <p class="doctor-role">Neurosurgeon</p>
-            <p class="doctor-copy">
-              Focuses on spine care, nerve-related symptoms, surgical
-              consultations, rehabilitation planning, and coordinated follow-up.
-            </p>
-            <div class="doctor-tags" aria-label="Dr. Chinyere Okafor specialties">
-              <span>Spine Care</span>
-              <span>Nerve Pain</span>
-              <span>Rehab Plans</span>
-            </div>
-          </div>
-          <div class="doctors__card">
-            <div class="doctors__card__image">
-              <img
-                src="about.jpg"
-                alt="Healthcare specialist consulting with a patient"
-              />
-            </div>
-            <h4>Dr. Maya Reynolds</h4>
-            <p class="doctor-role">Dermatologist</p>
-            <p class="doctor-copy">
-              Provides skin health evaluations, rash and acne treatment,
-              preventive screenings, and patient education for ongoing care.
-            </p>
-            <div class="doctor-tags" aria-label="Dr. Maya Reynolds specialties">
-              <span>Skin Health</span>
-              <span>Screenings</span>
-              <span>Acne Care</span>
-            </div>
+      <section class="section__container split-grid">
+        <div>
+          <p class="section__eyebrow">Care that feels organized</p>
+          <h2 class="section__header">Every major action has its own place.</h2>
+          <p class="section__lead">
+            Patients can browse services, learn about the hospital, review
+            doctors, contact the team, and manage portal access without being
+            dropped into one long scrolling page.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn--secondary" href="doctors.html">Meet the Doctors</a>
+            <a class="btn btn--ghost" href="about.html">Learn About Us</a>
           </div>
         </div>
+        <img src="choose-us.webp" alt="Medical team discussing patient care" />
       </section>
     </main>
 
-    <footer id="contact" class="footer">
+    <footer class="footer">
       <div class="section__container footer__container">
-        <div class="footer__col">
+        <div>
           <h3>Fortunato<span>Care</span></h3>
           <p>
-            We are honored to be part of your healthcare journey and committed
-            to compassionate, personalized care every step of the way.
-          </p>
-          <p>
-            Trust us with your health, and let us work together to achieve the
-            best possible outcomes for you and your loved ones.
+            Coordinated hospital care for patients, families, employers, and
+            community partners in Lake Charles.
           </p>
         </div>
-        <div class="footer__col">
-          <h4>About Us</h4>
-          <p><a href="#home">Home</a></p>
-          <p><a href="#about">About Us</a></p>
-          <p><a href="#doctors">Doctors</a></p>
+        <div>
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+          </ul>
         </div>
-        <div class="footer__col">
-          <h4>Services</h4>
-          <p><a href="#services">Laboratory Test</a></p>
-          <p><a href="#services">Health Check</a></p>
-          <p><a href="#services">Physiotherapy</a></p>
-          <p><a href="#services">Emergency Support</a></p>
-          <p><a href="#services">Primary Care</a></p>
+        <div>
+          <h4>Patient Tools</h4>
+          <ul>
+            <li><a href="portal.html">Patient Portal</a></li>
+            <li><a href="contact.html#appointment">Book Appointment</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
         </div>
-        <div class="footer__col">
-          <h4>Contact Us</h4>
-          <p><svg class="footer-icon"><use href="#icon-map"></use></svg> 120 Wellness Avenue, Lake Charles, LA</p>
-          <p><svg class="footer-icon"><use href="#icon-mail"></use></svg> fanyanwu@mcneese.edu</p>
-          <p><svg class="footer-icon"><use href="#icon-phone"></use></svg> (337) 249-9136</p>
+        <div>
+          <h4>Contact</h4>
+          <p>120 Wellness Avenue, Lake Charles, LA</p>
+          <p>hello@fortunatocare.com</p>
+          <p>(337) 555-0198</p>
         </div>
       </div>
       <div class="footer__bar">
         <div class="footer__bar__content">
-          <p>Copyright 2026 FortunatoCare. Built by Fidel Anyanwu.</p>
+          <p>Copyright 2026 FortunatoCare. All rights reserved.</p>
         </div>
       </div>
     </footer>
-    <div
-      class="portal-modal"
-      id="patientPortalModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="patientPortalTitle"
-      aria-hidden="true"
-    >
-      <div class="portal-auth-card">
-        <button
-          class="portal-close"
-          id="closePatientPortal"
-          type="button"
-          aria-label="Close patient portal"
-        >
-          &times;
-        </button>
-        <div class="portal-auth-intro">
-          <p class="section__eyebrow">FortunatoCare Portal</p>
-          <h2 id="patientPortalTitle">Access your care workspace</h2>
-          <p>
-            This front-end demo simulates account creation, email verification,
-            sign in, and a saved patient session using browser storage.
-          </p>
-          <div class="portal-status" id="patientPortalStatus" role="status" aria-live="polite">
-            No patient is signed in.
-          </div>
-        </div>
-        <div class="portal-tabs" role="tablist" aria-label="Patient portal forms">
-          <button class="is-active" type="button" data-portal-tab="create">Create Account</button>
-          <button type="button" data-portal-tab="signin">Sign In</button>
-        </div>
-        <form class="portal-form" id="portalCreateForm">
-          <label>
-            Full Name
-            <input type="text" name="name" placeholder="Your name" required />
-          </label>
-          <label>
-            Email Address
-            <input type="email" name="email" placeholder="you@example.com" required />
-          </label>
-          <label>
-            Password
-            <input type="password" name="password" placeholder="At least 6 characters" minlength="6" required />
-          </label>
-          <button class="btn" type="submit">Send Verification Code</button>
-        </form>
-        <form class="portal-form" id="portalSigninForm" hidden>
-          <label>
-            Email Address
-            <input type="email" name="email" placeholder="you@example.com" required />
-          </label>
-          <label>
-            Password
-            <input type="password" name="password" placeholder="Your password" required />
-          </label>
-          <button class="btn" type="submit">Sign In</button>
-        </form>
-        <form class="portal-form verify-form" id="portalVerifyForm" hidden>
-          <p id="patientPortalCode">Demo verification code: ----</p>
-          <label>
-            Verification Code
-            <input type="text" name="code" inputmode="numeric" maxlength="6" placeholder="Enter code" required />
-          </label>
-          <div class="portal-form-actions">
-            <button class="btn" type="submit">Verify Account</button>
-            <button class="btn btn--ghost-dark" id="resendPatientCode" type="button">Resend Code</button>
-            <button class="btn btn--ghost-dark" id="portalSignOut" type="button">Sign Out</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <script>
-      const appointmentForm = document.querySelector("#appointment form");
-      const confirmation = document.querySelector(".appointment__confirmation");
-
-      appointmentForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(appointmentForm);
-        const firstName = formData.get("first-name").trim();
-        const reason = formData.get("reason").trim();
-
-        const title = document.createElement("strong");
-        const message = document.createElement("span");
-        title.textContent = "Appointment request sent.";
-        message.textContent = `Thank you, ${firstName}. We received your request about "${reason}" and will contact you soon to confirm a time.`;
-        confirmation.replaceChildren(title, message);
-        confirmation.hidden = false;
-        appointmentForm.reset();
-        confirmation.scrollIntoView({ block: "center" });
-      });
-
-      const portalModal = document.querySelector("#patientPortalModal");
-      const portalStatus = document.querySelector("#patientPortalStatus");
-      const portalCreateForm = document.querySelector("#portalCreateForm");
-      const portalSigninForm = document.querySelector("#portalSigninForm");
-      const portalVerifyForm = document.querySelector("#portalVerifyForm");
-      const patientPortalCode = document.querySelector("#patientPortalCode");
-      const portalTabs = document.querySelectorAll("[data-portal-tab]");
-      const portalStorageKey = "fortunatocare-portal-account-v1";
-
-      const readPortalAccount = () => {
-        try {
-          return JSON.parse(localStorage.getItem(portalStorageKey));
-        } catch {
-          return null;
-        }
-      };
-
-      const savePortalAccount = (account) => {
-        localStorage.setItem(portalStorageKey, JSON.stringify(account));
-      };
-
-      const createPortalCode = () =>
-        String(Math.floor(100000 + Math.random() * 900000));
-
-      const setPortalStatus = (message) => {
-        portalStatus.textContent = message;
-      };
-
-      const showPortalTab = (tabName) => {
-        portalTabs.forEach((tab) => {
-          tab.classList.toggle("is-active", tab.dataset.portalTab === tabName);
-        });
-        portalCreateForm.hidden = tabName !== "create";
-        portalSigninForm.hidden = tabName !== "signin";
-        portalVerifyForm.hidden = tabName !== "verify";
-      };
-
-      const refreshPortal = () => {
-        const account = readPortalAccount();
-
-        if (!account) {
-          setPortalStatus("No patient is signed in.");
-          patientPortalCode.textContent = "Demo verification code: ----";
-          showPortalTab("create");
-          return;
-        }
-
-        if (!account.verified) {
-          setPortalStatus(`Verification pending for ${account.email}.`);
-          patientPortalCode.textContent = `Demo verification code: ${account.code}`;
-          showPortalTab("verify");
-          return;
-        }
-
-        setPortalStatus(`Signed in as ${account.name}. Next visit tools are ready.`);
-        patientPortalCode.textContent =
-          "Account verified. You can sign out or keep reviewing the portal preview.";
-        showPortalTab("verify");
-      };
-
-      document.querySelectorAll("[data-open-portal]").forEach((button) => {
-        button.addEventListener("click", () => {
-          portalModal.classList.add("is-open");
-          portalModal.setAttribute("aria-hidden", "false");
-          refreshPortal();
-        });
-      });
-
-      document.querySelector("#closePatientPortal").addEventListener("click", () => {
-        portalModal.classList.remove("is-open");
-        portalModal.setAttribute("aria-hidden", "true");
-      });
-
-      portalModal.addEventListener("click", (event) => {
-        if (event.target === portalModal) {
-          portalModal.classList.remove("is-open");
-          portalModal.setAttribute("aria-hidden", "true");
-        }
-      });
-
-      portalTabs.forEach((tab) => {
-        tab.addEventListener("click", () => showPortalTab(tab.dataset.portalTab));
-      });
-
-      portalCreateForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const formData = new FormData(portalCreateForm);
-        const account = {
-          name: formData.get("name").trim(),
-          email: formData.get("email").trim().toLowerCase(),
-          password: formData.get("password"),
-          verified: false,
-          code: createPortalCode(),
-        };
-        savePortalAccount(account);
-        portalCreateForm.reset();
-        refreshPortal();
-      });
-
-      portalSigninForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const account = readPortalAccount();
-        const formData = new FormData(portalSigninForm);
-        const email = formData.get("email").trim().toLowerCase();
-        const password = formData.get("password");
-
-        if (!account || account.email !== email || account.password !== password) {
-          setPortalStatus("No matching patient account was found in this browser.");
-          return;
-        }
-
-        if (!account.verified) {
-          setPortalStatus("Account found. Verify it before signing in.");
-          showPortalTab("verify");
-          return;
-        }
-
-        portalSigninForm.reset();
-        refreshPortal();
-      });
-
-      portalVerifyForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const account = readPortalAccount();
-        const code = new FormData(portalVerifyForm).get("code").trim();
-
-        if (!account || code !== account.code) {
-          setPortalStatus("That code does not match the current demo email.");
-          return;
-        }
-
-        savePortalAccount({ ...account, verified: true });
-        portalVerifyForm.reset();
-        refreshPortal();
-      });
-
-      document.querySelector("#resendPatientCode").addEventListener("click", () => {
-        const account = readPortalAccount();
-        if (!account) {
-          setPortalStatus("Create an account before requesting a code.");
-          return;
-        }
-        savePortalAccount({ ...account, verified: false, code: createPortalCode() });
-        refreshPortal();
-      });
-
-      document.querySelector("#portalSignOut").addEventListener("click", () => {
-        localStorage.removeItem(portalStorageKey);
-        portalVerifyForm.reset();
-        refreshPortal();
-      });
-    </script>
   </body>
 </html>

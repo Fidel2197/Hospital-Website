@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact FortunatoCare, request an appointment, reach patient support, or ask about employer and partner care programs."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/fortunatocare-symbol.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <title>Contact Us | FortunatoCare</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="section__container nav__container" aria-label="Primary navigation">
+        <a class="nav__logo" href="index.html" aria-label="FortunatoCare home">
+          <img src="assets/fortunatocare-symbol.svg" alt="" />
+          <span>Fortunato<span>Care</span></span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span></span>
+        </button>
+        <div class="nav-menu" id="primary-navigation">
+          <ul class="nav__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+          </ul>
+          <div class="nav__actions">
+            <a class="btn btn--ghost" href="contact.html" aria-current="page">Contact Us</a>
+            <a class="btn portal-button" href="portal.html">Patient Portal</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero--contact">
+        <div class="section__container page-hero__content">
+          <p class="section__eyebrow">Contact</p>
+          <h1>Reach the care team and request your next visit.</h1>
+          <p>
+            Contact FortunatoCare for appointment scheduling, patient support,
+            referrals, and employer or community partnership questions.
+          </p>
+        </div>
+      </section>
+
+      <section class="section__container contact-grid" id="appointment">
+        <div>
+          <p class="section__eyebrow">Contact details</p>
+          <h2 class="section__header">We will help route your request.</h2>
+          <p class="section__lead">
+            Share the care you need, ask a support question, or connect with the
+            team about organization-wide care programs.
+          </p>
+          <div class="contact-list">
+            <article class="contact-card">
+              <span>Address</span>
+              <h3>120 Wellness Avenue</h3>
+              <p>Lake Charles, LA 70601</p>
+            </article>
+            <article class="contact-card">
+              <span>Email</span>
+              <h3>hello@fortunatocare.com</h3>
+              <p>For scheduling, patient support, and partner requests.</p>
+            </article>
+            <article class="contact-card">
+              <span>Phone</span>
+              <h3>(337) 555-0198</h3>
+              <p>Monday to Friday, 8:00 AM to 6:00 PM.</p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="form-panel" aria-label="Appointment request form">
+          <h2>Request an Appointment</h2>
+          <p>Complete the form and the scheduling team will follow up.</p>
+          <form class="appointment-form" action="#" method="post">
+            <div class="appointment__confirmation" role="status" aria-live="polite" hidden></div>
+            <label>
+              First Name
+              <input type="text" name="first-name" placeholder="First name" required />
+            </label>
+            <label>
+              Last Name
+              <input type="text" name="last-name" placeholder="Last name" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Phone Number
+              <input type="tel" name="phone" placeholder="(337) 555-0198" required />
+            </label>
+            <label>
+              Reason for Visit
+              <textarea
+                name="reason"
+                placeholder="Tell us what kind of care you need"
+                rows="4"
+                required
+              ></textarea>
+            </label>
+            <button class="btn btn--secondary" type="submit">Send Request</button>
+            <p class="appointment__hint">
+              For emergencies, call local emergency services immediately.
+            </p>
+          </form>
+        </aside>
+      </section>
+
+      <section class="section__container split-grid">
+        <div class="map-panel" aria-label="FortunatoCare location">
+          <div class="map-pin">FortunatoCare</div>
+        </div>
+        <div>
+          <p class="section__eyebrow">Visit planning</p>
+          <h2 class="section__header">Plan the right next step before you arrive.</h2>
+          <p class="section__lead">
+            Bring identification, insurance information, medication details, and
+            any referral notes. Returning patients can also use the portal to
+            review saved account information before a visit.
+          </p>
+          <div class="cta-actions">
+            <a class="btn" href="portal.html">Open Patient Portal</a>
+            <a class="btn btn--ghost" href="services.html">Review Services</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section__container">
+        <p class="section__eyebrow">Quick answers</p>
+        <h2 class="section__header">Common contact questions.</h2>
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>Can I request a specific doctor?</h3>
+            <p>
+              Yes. Add the doctor's name in the reason for visit, and the
+              scheduling team will confirm availability.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3>Do you support employer care programs?</h3>
+            <p>
+              Yes. Contact the care team for screening days, employee wellness,
+              injury follow-up, and referral coordination.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3>Can returning patients sign in?</h3>
+            <p>
+              Yes. Use the patient portal page to create an account, verify
+              access, sign in, and review your care workspace.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div>
+          <h3>Fortunato<span>Care</span></h3>
+          <p>
+            Coordinated hospital care for patients, families, employers, and
+            community partners in Lake Charles.
+          </p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Patient Tools</h4>
+          <ul>
+            <li><a href="portal.html">Patient Portal</a></li>
+            <li><a href="contact.html#appointment">Book Appointment</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>120 Wellness Avenue, Lake Charles, LA</p>
+          <p>hello@fortunatocare.com</p>
+          <p>(337) 555-0198</p>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <div class="footer__bar__content">
+          <p>Copyright 2026 FortunatoCare. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
