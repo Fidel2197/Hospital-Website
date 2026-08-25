@@ -492,31 +492,29 @@ textarea {
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(13, 34, 56, 0.95), rgba(18, 49, 79, 0.64)),
-    url("choose-us.webp") center / cover no-repeat;
+    url("assets/services-hero.webp") center / cover no-repeat;
 }
 
 .page-hero--about {
   background:
     linear-gradient(90deg, rgba(13, 34, 56, 0.95), rgba(18, 49, 79, 0.62)),
-    url("about.jpg") center / cover no-repeat;
+    url("assets/about-reception-hero.webp") center / cover no-repeat;
 }
 
 .page-hero--doctors {
   background:
     linear-gradient(90deg, rgba(13, 34, 56, 0.95), rgba(18, 49, 79, 0.62)),
-    url("us.jpg") center / cover no-repeat;
+    url("assets/doctors-hero.webp") center / cover no-repeat;
 }
 
 .page-hero--contact {
   background:
     linear-gradient(90deg, rgba(13, 34, 56, 0.95), rgba(18, 49, 79, 0.62)),
-    url("choose-us.webp") center / cover no-repeat;
+    url("assets/contact-support.webp") center / cover no-repeat;
 }
 
 .page-hero--portal {
-  background:
-    linear-gradient(90deg, rgba(13, 34, 56, 0.96), rgba(37, 99, 235, 0.56)),
-    url("about.jpg") center / cover no-repeat;
+  background: linear-gradient(135deg, rgba(13, 34, 56, 0.98), rgba(37, 99, 235, 0.66));
 }
 
 .page-hero__content {
