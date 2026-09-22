@@ -5,10 +5,15 @@ CSS, and JavaScript. It presents a patient-friendly healthcare experience with
 dedicated pages for services, doctors, about information, contact, appointment
 requests, and patient portal access.
 
+## Links
+
+- [Open FortunatoCare](https://hospital-website-psi-three.vercel.app/)
+- [Repository](https://github.com/Fidel2197/Hospital-Website)
+
 ## Overview
 
-The site is designed to feel like a real healthcare organization website rather
-than a one-page project. Visitors can move between focused pages, request an
+The site organizes healthcare information into dedicated pages for visitors
+exploring services, care programs, and specialists. Visitors can move between focused pages, request an
 appointment, review care programs, learn about doctors, and use a browser-based
 patient account flow.
 
@@ -19,7 +24,7 @@ patient account flow.
 - Patient portal account creation, security-code verification, sign-in, dashboard, and sign-out
 - Service cards for diagnostics, health checks, physiotherapy, emergency support, primary care, and wellness counseling
 - Doctor profile page with expanded specialist cards
-- Employer and partner care messaging for company-ready presentation
+- Information about employer and partner care programs
 - Responsive layout for desktop, tablet, and mobile screens
 - Local image assets, favicon, and FortunatoCare branding
 - Static hosting-ready structure for Vercel, GitHub Pages, or any basic web host
@@ -65,6 +70,10 @@ git clone https://github.com/Fidel2197/Hospital-Website.git
 
 Open `index.html` in a browser. No build step or package installation is
 required.
+
+## Forms and Patient Portal
+
+Appointment forms show client-side confirmations; requests are not sent to a clinic. Patient accounts and verification run in the browser and do not provide secure backend authentication. This project is not connected to a healthcare provider or patient-record system.
 
 ## Deployment
 
