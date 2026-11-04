@@ -10,6 +10,8 @@ requests, and patient portal access.
 - [Open FortunatoCare](https://hospital-website-psi-three.vercel.app/)
 - [Repository](https://github.com/Fidel2197/Hospital-Website)
 
+![Hospital-Website website](docs/images/fortunatocare-home-preview.png)
+
 ## Overview
 
 The site organizes healthcare information into dedicated pages for visitors
