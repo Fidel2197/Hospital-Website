@@ -1,9 +1,6 @@
 # FortunatoCare Hospital Website
 
-FortunatoCare is a responsive multi-page hospital website built with HTML,
-CSS, and JavaScript. It presents a patient-friendly healthcare experience with
-dedicated pages for services, doctors, about information, contact, appointment
-requests, and patient portal access.
+FortunatoCare is a healthcare website built with HTML, CSS, and JavaScript. It includes services, doctor profiles, appointment forms, and patient portal screens.
 
 ## Links
 
@@ -12,12 +9,9 @@ requests, and patient portal access.
 
 ![Hospital-Website website](docs/images/fortunatocare-home-preview.png)
 
-## Overview
+## How it works
 
-The site organizes healthcare information into dedicated pages for visitors
-exploring services, care programs, and specialists. Visitors can move between focused pages, request an
-appointment, review care programs, learn about doctors, and use a browser-based
-patient account flow.
+Visitors can browse services and doctor profiles, fill in appointment forms, and try the patient portal screens. Form confirmations and account states run in the browser.
 
 ## Features
 
